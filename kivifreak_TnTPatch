@@ -2,7 +2,7 @@
 function useItem(x,y,z,itemId,blockId)
 {
 
-        if(itemId == 267 && blockId == 46)//If your item is a stone hoe, and the block your using it on is stone
+        if(itemId == 103 && blockId == 46)//If your item is flint and steel, and the block your using it on is tnt
         {
   	preventDefault();
 		setTile(x,y,z,0);
