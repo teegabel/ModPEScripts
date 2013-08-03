@@ -1,0 +1,32 @@
+//TnT Patch version 0.1  --> Makes grass explode when exploding tnt :3
+function useItem(x,y,z,itemId,blockId)
+{
+
+        if(itemId == 267 && blockId == 46)//If your item is a stone hoe, and the block your using it on is stone
+        {
+  	preventDefault();
+		setTile(x,y,z,0);
+		explode(x,y,z,3.1);
+		for(var loopX = x - 3; loopX <= x + 3; loopX ++)
+		{	
+			for(var loopY = y - 3; loopY <= y + 3; loopY++)
+			{
+				for(var loopZ = z - 3; loopZ <= z+3; loopZ++)
+				{
+				var diff = 10;
+				if(loopX + loopY + loopZ < x + y + z)
+				{
+					diff = (x + y + z) - (loopX + loopY + loopZ);
+				}
+				else
+				{diff = (loopX + loopY + loopZ) - (x + y + z);}
+
+				if(diff < 3)
+				{
+				setTile(loopX, loopY, loopZ, 0); }
+				
+			}
+		}
+                
+        }
+}
